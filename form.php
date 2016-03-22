@@ -34,9 +34,15 @@
 	$(document).ready(function(){
 		$('#ok').hide();
 		$('body').click(function(){
-			$('#form').hide();
+			//$('#form').hide();
 			$('#ok').show();
 		});
+		
+		var name = $('#name').val();
+		if ( name == '' ) {
+			$('#submit').attr('disabled', true);
+			$('#submit').attr('title', 'Заполните все поля');
+		}
 	});
   </script>
   
@@ -55,19 +61,19 @@
 			<form action="" method="POST" id="form">
 	
 			<p>
-			  <input type="text" name="name" id="name" value="" placeholder="Имя">
+			  <input type="text" name="name" id="name" class="form-control" value="" placeholder="Имя">
 			</p>
 
 			<p>
-			  <input type="text" name="email" id="email" value="" placeholder="e-mail">
+			  <input type="text" name="email" id="email" class="form-control" value="" placeholder="e-mail">
 			</p>
 	
 			<p>
-			  <input type="text" name="subject" id="subject" value="" placeholder="Тема">
+			  <input type="text" name="subject" id="subject" class="form-control" value="" placeholder="Тема">
 			</p>
 
 			<p>
-			  <textarea placeholder="текст сообщения"></textarea>
+			  <textarea id="textarea" class="form-control" placeholder="текст сообщения"></textarea>
 			</p>
 
 			<input class="btn btn-success" type="submit" name="submit" id="submit" value="Отправить">
