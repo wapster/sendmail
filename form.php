@@ -18,6 +18,11 @@
    body { 
     margin: 0; /* Убираем отступы */
    }
+   
+   textarea { 
+   	resize: none; 
+   }
+  
    .main {
     margin: 5% 5% 5% 15%; /* Отступы вокруг элемента */
     width: 400px;
@@ -25,7 +30,7 @@
     padding: 10px; /* Поля вокруг текста */
    }
    #good {
-   	padding-top: 20px;
+   	padding-top: 15px;
    }
    
   </style>
@@ -39,7 +44,9 @@
 		});
 		
 		var name = $('#name').val();
-		if ( name == '' ) {
+		if ( name !== '' ) {
+			$('#submit').attr('disabled', false);
+		} else {
 			$('#submit').attr('disabled', true);
 			$('#submit').attr('title', 'Заполните все поля');
 		}
@@ -54,7 +61,7 @@
 <div class="main">
 	<div class="panel panel-success">
   		<div class="panel-heading">
-    		<h3 class="panel-title">Отправить сообщение</h3>
+    		<h3 class="panel-title"><strong>Отправить сообщение</strong></h3>
   		</div>
 	
 		<div class="panel-body">
@@ -73,17 +80,19 @@
 			</p>
 
 			<p>
-			  <textarea id="textarea" class="form-control" placeholder="текст сообщения"></textarea>
+			  <textarea id="textarea" class="form-control" placeholder="текст сообщения" rows="6"></textarea>
 			</p>
 
-			<input class="btn btn-success" type="submit" name="submit" id="submit" value="Отправить">
+			<div align="right">
+				<input class="btn btn-success" type="submit" name="submit" id="submit" value="Отправить">
+			</div>
 	
 			</form>
 			
 			<div id="good">
-			<div class="alert alert-success" role="alert" id="ok">
-				<span class="alert-link">Сообщение отправлено. Спасибо.</span>
-			</div>
+				<div class="alert alert-success" role="alert" id="ok">
+					<span class="alert-link">Сообщение отправлено. Спасибо.</span>
+				</div>
 			</div>
 			
 		</div>
