@@ -42,15 +42,20 @@
 			//$('#form').hide();
 			$('#ok').show();
 		});
-		
+	});
+	
+	function disabledSubmit () {
 		var name = $('#name').val();
-		if ( name !== '' ) {
-			$('#submit').attr('disabled', false);
+		var email = $('#email').val();
+		var subject = $('#subject').val();
+		var textarea = $('#textarea').val();
+		if ( name != 0 && email != 0 && subject != 0 && textarea != 0 ) {
+			$('#submit').removeAttr('disabled');
 		} else {
-			$('#submit').attr('disabled', true);
+			$('#submit').attr('disabled', 'disabled');
 			$('#submit').attr('title', 'Заполните все поля');
 		}
-	});
+	}
   </script>
   
   <title>Send Mail</title>
@@ -68,23 +73,23 @@
 			<form action="" method="POST" id="form">
 	
 			<p>
-			  <input type="text" name="name" id="name" class="form-control" value="" placeholder="Имя">
+			  <input type="text" name="name" id="name" class="form-control" onkeyup="disabledSubmit()" value="" placeholder="Имя">
 			</p>
 
 			<p>
-			  <input type="text" name="email" id="email" class="form-control" value="" placeholder="e-mail">
+			  <input type="text" name="email" id="email" class="form-control" onkeyup="disabledSubmit()" value="" placeholder="e-mail">
 			</p>
 	
 			<p>
-			  <input type="text" name="subject" id="subject" class="form-control" value="" placeholder="Тема">
+			  <input type="text" name="subject" id="subject" class="form-control" onkeyup="disabledSubmit()" value="" placeholder="Тема">
 			</p>
 
 			<p>
-			  <textarea id="textarea" class="form-control" placeholder="текст сообщения" rows="6"></textarea>
+			  <textarea id="textarea" class="form-control" placeholder="текст сообщения" rows="6" onkeyup="disabledSubmit()"></textarea>
 			</p>
 
 			<div align="right">
-				<input class="btn btn-success" type="submit" name="submit" id="submit" value="Отправить">
+				<input class="btn btn-success" type="submit" name="submit" id="submit" value="Отправить" disabled>
 			</div>
 	
 			</form>
