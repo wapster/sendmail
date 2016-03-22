@@ -79,7 +79,7 @@
 				<span class="alert-link">Сообщение отправлено. Спасибо.</span>
 			</div>
 			</div>
-
+			
 		</div>
 	</div>
 </div>
